@@ -1,0 +1,2 @@
+rootProject.name='NetworkingTest'
+include ':app'
