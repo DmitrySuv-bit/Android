@@ -6,6 +6,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
         Button buttonJson = findViewById(R.id.button);
+
+        downloadAndShowJson(textView);
+
+        textView.setMovementMethod(new ScrollingMovementMethod());
 
         buttonJson.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         if (!networkOK) {
             return;
         }
-        String jsonUrl = "https://api.exchangeratesapi.io/latest";
+        String jsonUrl = "https://www.cbr-xml-daily.ru/daily_json.js";
 
         MyAsyncTask myAsyncTask = new MyAsyncTask(textView);
 
